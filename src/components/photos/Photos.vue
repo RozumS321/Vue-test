@@ -1,9 +1,15 @@
 <template>
     <div class='photos'>
-        <Photo 
-            v-for="data of dataPage" 
-            v-bind:key="data.id"
-            v-bind:data = "data"
+        <Nasa 
+            v-for="nasaPhoto of nasaPhotos" 
+            v-bind:key="nasaPhoto.id"
+            v-bind:nasaPhoto = "nasaPhoto"
+        />
+
+        <Unsplash
+         v-for="unsplashPhoto of unsplashPhotos" 
+         v-bind:unsplashPhoto='unsplashPhoto'
+         v-bind:key='unsplashPhoto.id'
         />
 
     </div>
@@ -11,21 +17,35 @@
 
 <script>
 
-import Photo from "@/components/photo/Photo"
+import Nasa from "@/components/photo/Nasa"
+import Unsplash from "@/components/photo/Unsplash"
+
 
 
 export default {
-    props:['dataPage'],
+    props: {
+        nasaPhotos:{
+            type: Array
+        },
+       unsplashPhotos:{
+            type: Array
+        }
+    },
     components:{
-    Photo
+    Nasa,
+    Unsplash
+    },
+    methods:{
+        
     }
+    
 }
 
 </script>
 
 <style scoped>
 
-    .photos{
+.photos{
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-template-rows: repeat(auto,1fr);

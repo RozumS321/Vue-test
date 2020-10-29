@@ -1,24 +1,32 @@
 <template>
 <form>
     <div class='filters'>
-        <input placeholder="search name" type='text'/>
 
-        <div class="filters-radio">
-
-            <div class='filters-radio-input'>
-                <input type="radio" id="nasa" name="api" checked>
-                <label for="nasa">Nasa API</label>
-            </div>
-
-            <div class='filters-radio-input'>
-                <input type="radio" id="other" name="api">
-                <label for="other">Other API</label>
-            </div>
+        <div class="filters-radio" >  
+        <select v-model="selected" @change="changeApi(selected)">
+        <option disabled value="">Selected API</option>
+            <option value='nasa'>Nasa API</option>
+            <option value='unsplash'>unsplash API</option>
+        </select>
 
         </div>
     </div>
 </form>
 </template>
+
+<script>
+export default {
+    props:{
+     changeApi:{
+         type: Function
+     }
+    },
+    methods:{
+
+    }
+
+}
+</script>
 
 <style scoped>
 

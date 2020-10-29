@@ -2,15 +2,13 @@
     <div class="photo">
 
         <div class='data-img'>
-            <img alt="s" :src='data.img_src'/>
+            <img alt="nasaPhoto.camera.full_name" :src='nasaPhoto.img_src'/>
         </div>
 
         <div class="data-info" >
-
-            <span>{{'id: ' + data.id}}</span> 
-            <span>{{'earth-date: ' + data.earth_date}}</span> 
-            <span>{{'camera name: ' + data.camera.full_name}}</span> 
-
+            <span>{{'id: ' + nasaPhoto.id}}</span> 
+            <span>{{'earth-date: ' + nasaPhoto.earth_date}}</span> 
+            <span>{{'camera name: ' + nasaPhoto.camera.full_name}}</span> 
         </div>
 
     </div>
@@ -21,7 +19,7 @@
 
 export default {
 props: {
-    data:{
+    nasaPhoto:{
         type:Object,  
         required: true
     },
@@ -30,8 +28,6 @@ props: {
 
 
 </script>
-
-
 
 <style>
 
